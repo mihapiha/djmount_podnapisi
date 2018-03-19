@@ -288,6 +288,13 @@ BrowseChildren (DJFS* const self, const char* const sub_path,
 	      FILE_BEGIN (name) {
 		FILE_SET_URL (file.uri, res_size);
 	      } FILE_END;
+
+	      const char* srt_url = MediaFile_GetSrtURL(o);
+	      if (srt_url) {
+	      	FILE_BEGIN("podnapisi.srt") {
+	      		FILE_SET_URL (srt_url, -1);
+	      	} FILE_END
+	      }
 	    }
 	  }
 	}

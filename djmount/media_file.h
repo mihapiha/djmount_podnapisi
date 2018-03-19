@@ -96,6 +96,13 @@ MediaFile_GetResSize (const MediaFile* const file);
 char*
 MediaFile_GetPlaylistContent (const MediaFile* file, void* result_context);
 
+/*****************************************************************************
+ * @brief       Returns the URL of the video's .srt subtitle file.
+ *
+ * @param o                  the DIDLObject
+ *****************************************************************************/
+const char*
+MediaFile_GetSrtURL (const DIDLObject* o);
 
 #ifdef __cplusplus
 }; // extern "C"

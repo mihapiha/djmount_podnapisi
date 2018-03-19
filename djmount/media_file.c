@@ -288,4 +288,29 @@ MediaFile_GetResSize (const MediaFile* const file)
 	return res;
 }
 
+/******************************************************************************
+ * MediaFile_GetSrtURL
+ *****************************************************************************/
+
+const char*
+MediaFile_GetSrtURL (const DIDLObject* const o)
+{
+	IXML_NodeList* const srtNode = 
+		ixmlElement_getElementsByTagName (o->element, "sec:CaptionInfoEx");
+	if (srtNode == NULL)
+		return NULL; // ---------->
+
+	IXML_Element* const res = 
+			(IXML_Element*) ixmlNodeList_item (srtNode, 0);
+
+	const char* uri = XMLUtil_GetElementValue (res);
+
+	return uri;
+	
+	/*
+	const char* url = XMLUtil_FindFirstElementValue ((IXML_Node*) o->element, "sec:CaptionInfoEx", false, true);
+	return url;
+	*/
+}
+
 
